@@ -62,7 +62,7 @@
 								"source": {
 									"type": "SqlServerSource",
 									"sqlReaderQuery": {
-										"value": "@{concat('SELECT * FROM ', item().SCHEMA_NAME, '.',item().TABLE_NAME)}",
+										"value": "@{concat('SELECT * FROM ', item().TABLE_SCHEMA, '.',item().TABLE_NAME)}",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -100,7 +100,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"schema_name": {
-											"value": "@item().SCHEMA_NAME",
+											"value": "@item().TABLE_SCHEMA",
 											"type": "Expression"
 										},
 										"table_name": {
