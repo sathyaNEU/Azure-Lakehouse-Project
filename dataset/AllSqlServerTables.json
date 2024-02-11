@@ -1,0 +1,12 @@
+{
+	"name": "AllSqlServerTables",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServerSHIR",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}

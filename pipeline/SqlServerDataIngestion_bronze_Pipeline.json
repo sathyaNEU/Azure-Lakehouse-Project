@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "BrozeCopyDataActivity",
-				"type": "Copy",
+				"name": "GetAllDesiredTables",
+				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -17,40 +17,16 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
+						"sqlReaderQuery": "select TABLE_NAME , TABLE_SCHEMA from INFORMATION_SCHEMA.tables where table_SCHEMA='saleslt'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
-					"sink": {
-						"type": "ParquetSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "ParquetWriteSettings"
-						}
+					"dataset": {
+						"referenceName": "AllSqlServerTables",
+						"type": "DatasetReference"
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "SqlServerTable",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "Parquet_Bronze",
-						"type": "DatasetReference"
-					}
-				]
+					"firstRowOnly": false
+				}
 			}
 		],
 		"annotations": []
