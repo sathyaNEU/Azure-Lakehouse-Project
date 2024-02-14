@@ -362,7 +362,7 @@
 										"source": {
 											"type": "SqlServerSource",
 											"sqlReaderQuery": {
-												"value": "@{concat('SELECT * FROM ', item().SCHEMA_NAME, '.',item().TABLE_NAME)}",
+												"value": "@{concat('SELECT * FROM ', item().TABLE_SCHEMA, '.',item().TABLE_NAME)}",
 												"type": "Expression"
 											},
 											"queryTimeout": "02:00:00",
@@ -401,7 +401,7 @@
 											"type": "DatasetReference",
 											"parameters": {
 												"schema_name": {
-													"value": "@item().SCHEMA_NAME",
+													"value": "@item().TABLE_SCHEMA",
 													"type": "Expression"
 												},
 												"table_name": {
@@ -425,75 +425,6 @@
 				"[concat(variables('factoryId'), '/datasets/AllSqlServerTables')]",
 				"[concat(variables('factoryId'), '/datasets/SqlServerForEachCopy')]",
 				"[concat(variables('factoryId'), '/datasets/Parquet_Tables')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "BrozeCopyDataActivity",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "SqlServerSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "SqlServerTable",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Parquet_Bronze",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SqlServerTable')]",
-				"[concat(variables('factoryId'), '/datasets/Parquet_Bronze')]"
 			]
 		}
 	]
