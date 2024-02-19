@@ -18,7 +18,7 @@
 		},
 		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://datalakebsv.dfs.core.windows.net/"
+			"defaultValue": "https://datalakebsv1.dfs.core.windows.net/"
 		},
 		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -224,16 +224,7 @@
 				"type": "Parquet",
 				"typeProperties": {
 					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@concat(dataset().table_name,'.parquet')",
-							"type": "Expression"
-						},
-						"folderPath": {
-							"value": "@{concat(dataset().schema_name,'/',dataset().table_name)}",
-							"type": "Expression"
-						},
-						"fileSystem": "bronze"
+						"type": "AzureBlobFSLocation"
 					},
 					"compressionCodec": "snappy"
 				},

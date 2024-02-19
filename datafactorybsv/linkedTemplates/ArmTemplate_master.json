@@ -18,7 +18,7 @@
 		},
 		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://datalakebsv.dfs.core.windows.net/"
+			"defaultValue": "https://datalakebsv1.dfs.core.windows.net/"
 		},
 		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
 			"type": "string",

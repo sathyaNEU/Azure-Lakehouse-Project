@@ -12,7 +12,7 @@
 			"value": "Integrated Security=False;Data Source=localhost;Initial Catalog=AdventureWorksLT2017;User ID=azureuser"
 		},
 		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
-			"value": "https://datalakebsv.dfs.core.windows.net/"
+			"value": "https://datalakebsv1.dfs.core.windows.net/"
 		},
 		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
 			"value": "https://keyvaultbsv.vault.azure.net/"
