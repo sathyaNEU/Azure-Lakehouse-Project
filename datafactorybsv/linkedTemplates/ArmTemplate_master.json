@@ -22,7 +22,7 @@
 		},
 		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "https://azurekeyvaultbsv.vault.azure.net/"
+			"defaultValue": "https://keyvaultbsv.vault.azure.net/"
 		},
 		"containerUri": {
 			"type": "string",

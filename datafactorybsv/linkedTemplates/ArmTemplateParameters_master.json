@@ -15,7 +15,7 @@
 			"value": "https://datalakebsv.dfs.core.windows.net/"
 		},
 		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
-			"value": "https://azurekeyvaultbsv.vault.azure.net/"
+			"value": "https://keyvaultbsv.vault.azure.net/"
 		},
 		"containerUri": {
 			"value": ""

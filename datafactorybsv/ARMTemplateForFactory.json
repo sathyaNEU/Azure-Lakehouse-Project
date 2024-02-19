@@ -22,7 +22,7 @@
 		},
 		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
 			"type": "string",
-			"defaultValue": "https://azurekeyvaultbsv.vault.azure.net/"
+			"defaultValue": "https://keyvaultbsv.vault.azure.net/"
 		}
 	},
 	"variables": {
@@ -404,21 +404,21 @@
 							"referenceName": "AzureKeyVault_LS",
 							"type": "LinkedServiceReference"
 						},
-						"secretName": "sqlserverpassword"
+						"secretName": "ShLocalHostPwd"
 					}
 				},
 				"connectVia": {
-					"referenceName": "SqlServerIntegrationRuntime",
+					"referenceName": "SHIR",
 					"type": "IntegrationRuntimeReference"
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SqlServerIntegrationRuntime')]",
+				"[concat(variables('factoryId'), '/integrationRuntimes/SHIR')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault_LS')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SqlServerIntegrationRuntime')]",
+			"name": "[concat(parameters('factoryName'), '/SHIR')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
 			"properties": {
