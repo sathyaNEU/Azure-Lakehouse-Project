@@ -11,11 +11,11 @@
 					"referenceName": "AzureKeyVault_LS",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "sqlserverpassword"
+				"secretName": "ShLocalHostPwd"
 			}
 		},
 		"connectVia": {
-			"referenceName": "SqlServerIntegrationRuntime",
+			"referenceName": "SHIR",
 			"type": "IntegrationRuntimeReference"
 		}
 	}
