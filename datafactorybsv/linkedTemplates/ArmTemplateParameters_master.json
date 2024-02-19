@@ -14,6 +14,9 @@
 		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
 			"value": "https://datalakebsv1.dfs.core.windows.net/"
 		},
+		"AzureDatabricks_LS_properties_typeProperties_existingClusterId": {
+			"value": "0219-024843-mktdghn9"
+		},
 		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
 			"value": "https://keyvaultbsv.vault.azure.net/"
 		},
