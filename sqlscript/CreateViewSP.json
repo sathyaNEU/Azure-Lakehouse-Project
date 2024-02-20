@@ -1,0 +1,17 @@
+{
+	"name": "CreateViewSP",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\n--\nUSE gold_db\nGO\n\nCREATE OR ALTER PROCEDURE CreateSqlServerlessView_Gold @ViewName NVARCHAR(100)\nAS\nBEGIN\n\nDECLARE @statement VARCHAR(max)\n\n    set @statement = N'CREATE or alter VIEW ' + @ViewName + ' AS \n        SELECT *\n        FROM\n            OPENROWSET( \n            BULK ''https://datalakebsv1.dfs.core.windows.net/gold/SalesLT/'+ @ViewName + '/'',\n            FORMAT = ''DELTA''\n        ) AS [result]\n    '\nEXEC (@statement)\n\nEND\nGO\n\n\nEXEC CreateSqlServerlessView_Gold @ViewName = 'Address'\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "gold_db",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
