@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "sampleworkspacebsv"
+		},
+		"AzureDataLakeStorage_LS_accountKey": {
+			"value": ""
+		},
+		"SqlServerSHIR_connectionString": {
+			"value": "Integrated Security=False;Data Source=localhost;Initial Catalog=AdventureWorksLT2017;User ID=azureuser"
+		},
+		"SynapseServerlessDBLinkedService_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sampleworkspacebsv-ondemand.sql.azuresynapse.net;Initial Catalog=gold_db"
+		},
+		"sampleworkspacebsv-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:sampleworkspacebsv.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AzureDataLakeStorage_LS_properties_typeProperties_url": {
+			"value": "https://datalakebsv1.dfs.core.windows.net/"
+		},
+		"AzureKeyVault_LS_properties_typeProperties_baseUrl": {
+			"value": "https://keyvaultbsv.vault.azure.net/"
+		},
+		"sampleworkspacebsv-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://datalakebsv1.dfs.core.windows.net"
+		}
+	}
+}
